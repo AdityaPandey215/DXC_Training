@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>        
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  </script>
+<style>
+#tab{
+    float: left;
+}   
+
+</style>
+
+<script>
+  function add()
+  {
+    var a=document.getElementById("tar");
+    var r=a.insertRow(2)
+    var b=r.insertCell(0)
+    var c=r.insertCell(1)
+    var d=r.insertCell(2)
+    var e=r.insertCell(3);
+   b.innerHTML=document.getElementById("id").value;
+   c.innerHTML=document.getElementById("name").value;
+   d.innerHTML=document.getElementById("price").value;
+   e.innerHTML=document.getElementById("units").value;
+     
+  }
+  
+  
+</script>
+
+
+</head>
+
+<body style="background-color: lightcyan;">
+
+<div id="tab" style="border: 1px solid black;padding: 27px; margin-left:12px;">
+       <div class="form-group" style="width:256px;">
+         <label for="id">Enter id</label>
+         <input type="text" class="form-control" name="id" id="id"placeholder="Enter id">
+       </div>
+       <div class="form-group" style="width:256px;">
+            <label for="name">Enter Name</label>
+            <input type="text" class="form-control" name="name" id="name"placeholder="Enter name">
+          </div>
+          <div class="form-group" style="width:256px;">
+                <label for="price">Enter Price</label>
+                <input type="text" class="form-control" name="price" id="price"placeholder="Enter price">
+              </div>
+              <div class="form-group" style="width:256px;">
+                    <label for="units">Enter units</label>
+                    <input type="text" class="form-control" name="units" id="units"placeholder="Enter units">
+                  </div>
+                  <input id="button" onClick="add()" class="btn btn-primary" type="button" value="Click to add new row">
+
+                  
+</div>
+        
+ 
+<table id="tar" class="table table-dark table-hover" style="width:639px; margin-left:600px; margin-top:134px;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Units</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"></td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+
+
+
+
+</html>

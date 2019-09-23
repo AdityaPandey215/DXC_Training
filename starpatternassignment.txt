@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>        
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  </script>
+<style>
+#tab{
+    float: left;
+}   
+
+</style>
+
+<script>
+    
+  function Click()
+  {
+ var rows=document.getElementById("rows").value;
+ for(i=0;i<rows;i++)
+		{
+            var ast='';
+		  for(j=rows-1;j>i;j--)        
+		   {
+		    document.write("&nbsp;&nbsp")
+		   }
+		 
+		 for(z=0;z<2*i+1;z++)
+		 { 
+			 ast=ast+'*';
+		 }
+         
+         document.write(ast);
+		 document.write("<br>");
+		}
+		
+    }
+    
+ 
+
+</script>
+
+</head>
+
+
+<body>
+<div style="border:1px solid black;padding:27px;width:266px;margin-left:145px; margin-top:156px;">
+  <div class="form-group">
+  <label for="rows">Enter number of Rows</label>
+  <input style="width:200px;" type="text" class="form-control" name="rows" id="rows" placeholder="Rows">
+  </div>
+
+      <input onClick="Click()" id="click" class="btn btn-primary" type="button" value="Click to View">
+ </div>
+<div id="pattern"></div>
+
+</body>   
+
+
+</html>

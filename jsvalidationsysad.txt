@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>        
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  </script>
+<style>
+  #main
+  {
+    display:none;
+  }
+#ho:hover #main  {
+  display: block;
+} 
+
+</style>
+  <script>
+   
+   function validate()
+   {
+     if(document.getElementById("uname").value=="System")
+     {
+       if(document.getElementById("pword").value=="admin")
+       {
+          alert("Login Successful,Welcome");
+          document.getElementById("ho").style.backgroundColor="green";
+          document.getElementById("hd").innerHTML="LOGINN SUCCCESSFULLL";
+
+       }
+   }
+   else
+   {
+     alert("Login Failed,Try Again");
+     document.getElementById("ho").style.backgroundColor="red";
+          document.getElementById("hd").innerHTML="LOGIN Failed Try";
+     
+   }
+   
+   }
+
+    </script>
+
+
+
+</head>
+<body>
+
+ <div id="ho" style="background-color:red;margin-top:80px;margin-left:367px;width:478px;padding:4px;text-align: center;border:5px solid black;"><h4 id="hd" style="color: yellow;">MOVE MOUSE HERE</h4>
+
+
+   <div id="main" style="margin:90px;">
+    <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  ">LOGIN FORM</h1>
+   <div class="form-group">
+    <label for="uname">Enter Username</label>
+    <input type="text" name="" id="uname" class="form-control" placeholder="Enter Username here" aria-describedby="helpId">
+   </div>   
+   <div class="form-group">
+   <label for="pword">Enter Password</label>
+   <input type="password" name="" id="pword" class="form-control" placeholder="Enter Password here" aria-describedby="helpId">
+  </div>
+  <button type="button" class="btn btn-primary" onclick="validate()">Submit</button>
+
+ </div>
+
+</div> 
+</body>
+</html>
