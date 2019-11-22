@@ -1,0 +1,44 @@
+using System;
+using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
+namespace TestingGoogle
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void TestMethod1()
+        { 
+            
+            String JarPath = "C:\\SeleniumJar";
+            //Initailize driver Object
+            IWebDriver driver = new ChromeDriver(JarPath);
+            driver.Url = "https://www.google.com/";
+            String SearchText = "DXC Technologies";
+            Thread.Sleep(3000);
+            //Search string in search bar
+            driver.FindElement(By.Name("q")).SendKeys(SearchText);
+            //Hold Process for Some time So that Page fully loads
+            Thread.Sleep(3000);
+            driver.FindElement(By.Name("btnK")).Click();
+            Console.WriteLine(driver.Title);
+            String TitleOfPage = driver.Title;
+            //Condition to check if title of page equals searched string
+            if (TitleOfPage.Contains(SearchText))
+            {
+                Console.WriteLine("Pass");
+            }
+            else
+            {
+                Console.WriteLine("Fail");
+            }
+            //Return Result Stats
+            Console.WriteLine(driver.FindElement(By.Id("resultStats")).Text);
+            //Close Window
+            driver.Close();
+        }
+    }
+}

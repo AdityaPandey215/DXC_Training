@@ -1,0 +1,108 @@
+using System;
+using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
+
+namespace HandlingHoverEvent
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+
+            String TargetUrl;
+            //Set Path of Selenium Jar
+            String JarPath = "C:\\SeleniumJar";
+            //Initailize driver Object
+            IWebDriver driver = new FirefoxDriver(JarPath);
+            String SearchUrl= "http://www.youcandealwithit.com/";
+            driver.Url =SearchUrl;
+            driver.Manage().Window.Maximize();
+            //Hold Process for some time so that page loads fully
+            Thread.Sleep(3000);
+           //Set Target WebElement To Perform Hover Actions
+            IWebElement webElement = driver.FindElement(By.XPath("//*[@id='siteNav']/li[1]/a"));
+            Actions action = new Actions(driver);
+            //Perform Hover Mouse Event
+            action.MoveToElement(webElement).Build().Perform();
+            String calcandResources = "Calculators & Resources";
+            
+            driver.FindElement(By.LinkText(calcandResources)).Click();
+            TargetUrl = driver.Title;
+            //Check Condition if the Requested Link is Valid
+            if(TargetUrl.Contains(calcandResources))
+            {
+                Console.WriteLine("Calculator and Resources Link is Present");
+            }
+            else
+            {
+                Console.WriteLine("Calculator and Resources Link is Not Present");
+            }
+            Thread.Sleep(3000);
+            String calc = "Calculators";
+            driver.FindElement(By.LinkText(calc)).Click();
+            TargetUrl = driver.Title;
+            //Check Condition if the Requested Link is Valid
+            if (TargetUrl.Contains(calc))
+            {
+                Console.WriteLine("Calculator Link Text is Present");
+            }
+            else
+            {
+                Console.WriteLine("Calculator Link text is Not Present");
+            }
+            Thread.Sleep(3000);
+            String budCalc = "Budget Calculator";
+            driver.FindElement(By.LinkText(budCalc)).Click();
+            TargetUrl = driver.Title;
+            //Check Condition if the Requested Link is Valid
+            if (TargetUrl.Contains(budCalc))
+            {
+                Console.WriteLine("Budget Calculator Link is Present");
+            }
+            else
+            {
+                Console.WriteLine("Budget Calculator Link is Not Present");
+            }
+            Thread.Sleep(3000);
+            String foodValue = "3000";
+            driver.FindElement(By.Id("food")).SendKeys(foodValue);
+            String clothingValue = "2000";
+            driver.FindElement(By.Id("clothing")).SendKeys(clothingValue);
+            String shelterValue = "1000";
+            driver.FindElement(By.Id("shelter")).SendKeys(shelterValue);
+            String monthlyPay = "10000";
+            driver.FindElement(By.Id("monthlyPay")).SendKeys(monthlyPay);
+            String monthlyOther = "2000";
+            driver.FindElement(By.Id("monthlyOther")).SendKeys(monthlyOther);
+            Thread.Sleep(3000);
+            String totalMonthlyExpenses= "totalMonthlyExpenses";
+            Console.WriteLine(driver.FindElement(By.Id(totalMonthlyExpenses)).GetAttribute("value"));
+
+            //Convert String value to Double
+            double monthlyExpensee=Convert.ToDouble(driver.FindElement(By.Id("totalMonthlyExpenses")).GetAttribute("value"));
+           
+            double monthlyPayy=Convert.ToDouble(driver.FindElement(By.Id("totalMonthlyIncome")).GetAttribute("value"));
+           //Compare to check whether Monthly Expenses is less than or equal to Monthly Pay
+            if(monthlyExpensee<=monthlyPayy)
+            {
+                Console.WriteLine("You are Warren Buffet");
+            }
+           else
+            {
+                Console.WriteLine("You are VM");
+            }
+
+
+
+            Thread.Sleep(5000);
+            driver.Close();
+
+        }
+    }
+}
