@@ -1,0 +1,21 @@
+class InvalidUserName(Exception):
+    def __init__(self,msg="Invalid Credentials"):
+          Exception.__init__(self,msg)
+
+try:
+  credentials={"sachin":"century","saurav":"captain","yuvraj":"sixes"}
+  name=input("Please enter User name")
+  pas=input("Plese enter password")
+  if name in credentials and credentials[name]==pas:
+       print("WELCOME ",name)
+  else:
+      raise InvalidUserName
+
+except InvalidUserName as e:
+   print(e)      
+   
+
+         
+        
+         
+  

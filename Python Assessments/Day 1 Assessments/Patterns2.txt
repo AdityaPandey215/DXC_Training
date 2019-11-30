@@ -1,0 +1,11 @@
+stars=int(input("Enter rowssss"))
+space=0
+a=0
+b=stars
+for i in range(0,stars):
+   print(space*" ",end="")
+   print(b*"*",end="")
+   b=b-1
+   space=space+1
+   print()
+    

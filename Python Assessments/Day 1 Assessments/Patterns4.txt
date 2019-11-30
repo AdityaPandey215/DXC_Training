@@ -1,0 +1,11 @@
+stars=int(input("Enter String"))
+space=len(stars)
+iterable=0
+b=0
+for i in range(0,stars+1):
+   print(space*" ",end="")
+   print(b*"*",end="")
+   b=b+1
+   space=space-1
+   print()
+    

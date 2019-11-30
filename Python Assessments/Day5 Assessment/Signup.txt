@@ -1,0 +1,53 @@
+from tkinter import *
+import pymysql
+
+def submitDetails():
+    db = pymysql.connect("localhost","root","","test" )
+    cursor = db.cursor()
+    data=cursor.execute("INSERT INTO CREDENTIALS VALUES ('%s','%s','%s','%s')" % (entryFirst.get(),entrySecond.get(),entryThird.get(),entryFourth.get()))
+    print(data)
+    db.commit()
+    db.close()
+
+tkit=Tk()
+frameFirst=Frame(tkit)
+entryFirst=Entry(frameFirst,bd=1)
+labelFirst=Label(frameFirst,text="Enter First Name")
+entryFirst.pack(side=RIGHT)
+labelFirst.pack(side=LEFT)
+frameFirst.pack()
+
+
+frameSecond=Frame(tkit)
+entrySecond=Entry(frameSecond,bd=1)
+labelSecond=Label(frameSecond,text="Choose Username")
+entrySecond.pack(side=RIGHT)
+labelSecond.pack(side=LEFT)
+frameSecond.pack()
+
+
+frameThird=Frame(tkit)
+entryThird=Entry(frameThird,bd=1)
+labelThird=Label(frameThird,text="Choose Password")
+entryThird.pack(side=RIGHT)
+labelThird.pack(side=LEFT)
+frameThird.pack()
+
+frameFourth=Frame(tkit)
+entryFourth=Entry(frameFourth,bd=1)
+labelFourth=Label(frameFourth,text="Enter Location")
+entryFourth.pack(side=RIGHT)
+labelFourth.pack(side=LEFT)
+frameFourth.pack()
+
+
+
+
+frameFifth=Frame(tkit)
+submitButton=Button(frameFifth,text="Register",activebackground="blue",command=submitDetails)
+submitButton.pack(side=LEFT)
+frameFifth.pack()
+
+
+
+tkit.mainloop()

@@ -1,0 +1,29 @@
+def createWallet(balance,uname):
+    currentbalance=balance
+    currbalan={321:currenbalance}
+    def deposit(amount):
+        nonlocal currentbalance
+        currentbalance+=amount
+        print("balance after deposit=",currentbalance)
+    def withdraw(amount):
+        nonlocal currentbalance
+        if(currentbalance>=amount):
+            currentbalance=currentbalance-amount
+            print("balance after withdraw=",currentbalance)
+        else:
+            print("Balance not left")
+    
+    def fundtransfer(balance,user):
+                 
+
+    lis={"d":deposit,"w":withdraw}
+    return lis
+
+
+c=createWallet(5000,123)
+d=createWallet(6000,321)
+c["d"](1000)
+c["w"](1000)
+
+
+

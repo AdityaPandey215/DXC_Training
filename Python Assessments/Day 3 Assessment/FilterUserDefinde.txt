@@ -1,0 +1,63 @@
+
+class productList:
+  def __init__(self,pid,pname,cost,brand,category,rating,discount):
+     self.pid=pid,
+     self.pname=pname,
+     self.cost=cost,
+     self.brand=brand,
+     self.category=category,
+     self.rating=rating,
+     self.discount=discount
+
+product1=productList(1,"6T",10000,"Oneplus","Electronics",4,30)
+product2=productList(2,"Pants",3000,"Globus","Clothing",3,20)
+product3=productList(3,"EliteBook",50000,"Hp","Electronics",4,10)
+product4=productList(4,"Broom",500,"Gfk","Home Appliances",5,20)
+product5=productList(5,"Pro",100000,"Iphone","Electronics",5,10)
+  
+products=[product1,product2,product3,product4,product5]
+   
+def filterfun(arg,target):
+    print(arg,target)
+    filteredList=filter(lambda el:el.__dict__[arg][0]==target,products)
+    for i in filteredList:
+        print(i.pname[0],i.cost[0],i.rating[0])
+
+
+filterChoices={1:"category",2:"pname",3:"brand"}
+categories={"category":["Electronics","Home Appliances","Clothing"],"pname":["6T","Pants","EliteBook","Broom","Table","TShirt"],
+"brand":["Oneplus","Globus","Hp","Gfk","Kp appliances","Jockey"]}
+
+
+
+#filter by category,brand,product name
+print("Filter menu")
+print("-------------")
+print("Press 1 to filter by Category")
+print("Press 2 to filter by Name")
+print("Press 3 to filter by Brand")
+choice=int(input("Enter Choice"))
+print()
+ch=filterChoices[choice]
+
+li=categories[ch]
+counter=1
+for i in li:
+    st=str(counter)
+    print("Press "+ st + " to Filter by ",i)
+    counter=int(counter)
+    counter+=1
+choic=int(input("Enter Choice"))
+chh=categories[ch][choic-1]
+
+filterfun(ch,chh)
+    
+    
+
+
+
+
+
+
+
+

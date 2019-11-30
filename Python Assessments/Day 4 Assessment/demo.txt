@@ -1,0 +1,33 @@
+def demo(a):
+    def inner(*args,**kwargs):
+        print("This is inner!")
+       
+        for i in args:
+            if isinstance(i, str):
+
+               a(*args,**kwargs)
+            else:
+               print("Arguments should be string")
+
+        
+        for i in kwargs.values():
+            if isinstance(i, str):
+               a(*args,**kwargs)
+        else:
+             print("Arguments should be string")
+        
+
+        print("Inner function finished")
+    return inner
+
+@demo
+def sayhi(name1):
+    print("Hi="+name1)
+
+@demo
+def sayhello(name1,name2):
+    print("Hello World",name1,name2)
+
+
+sayhi(name1="Sachin")
+sayhello(name1=1,name2=2)

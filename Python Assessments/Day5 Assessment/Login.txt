@@ -1,0 +1,38 @@
+from tkinter import *
+import pymysql
+def validate():
+    db = pymysql.connect("localhost","root","","test" )
+    cursor = db.cursor()
+    cursor.execute("SELECT USER_NAME,PASSWORD,FIRST_NAME FROM CREDENTIALS")
+    listofData=cursor.fetchall()
+    if listofData[0][0]==entryFirst.get() and listofData[0][1]==entrySecond.get():
+         print("Welcome "+" "+listofData[0][2])
+    else:
+       print("Credentials Not Found")            
+
+    db.close()
+
+tkit=Tk()
+frameFirst=Frame(tkit)
+entryFirst=Entry(frameFirst,bd=1)
+labelFirst=Label(frameFirst,text="Enter Username")
+entryFirst.pack(side=RIGHT)
+labelFirst.pack(side=LEFT)
+frameFirst.pack()
+
+
+frameSecond=Frame(tkit)
+entrySecond=Entry(frameSecond,bd=1)
+labelSecond=Label(frameSecond,text="Enter Password")
+entrySecond.pack(side=RIGHT)
+labelSecond.pack(side=LEFT)
+frameSecond.pack()
+
+frameThird=Frame(tkit)
+submitButton=Button(frameThird,text="Submit",activebackground="blue",command=validate)
+submitButton.pack(side=LEFT)
+frameThird.pack()
+
+
+
+tkit.mainloop()

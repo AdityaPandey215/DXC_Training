@@ -1,0 +1,13 @@
+numb=int(input("Enter a Number"))
+n=2
+count=0
+sum=0
+while n<=numb/2:
+    if numb%n==0:
+       print("Factor is:",n)
+       count=count+1
+       sum=sum+n
+    n+=1
+print("count=",count)
+print("sum=",sum)
+ 

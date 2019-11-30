@@ -1,0 +1,12 @@
+import pymysql
+db=pymysql.connect("localhost","root","","test")
+cursor=db.cursor()
+data=cursor.execute("""CREATE TABLE CREDENTIALS (
+         FIRST_NAME  CHAR(20) NOT NULL,
+         USER_NAME  CHAR(20),
+         PASSWORD CHAR(30),  
+         LOCATION CHAR(30)
+          )"""
+)
+db.commit()
+db.close()

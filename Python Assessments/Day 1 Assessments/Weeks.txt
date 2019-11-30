@@ -1,0 +1,3 @@
+day=int(input("Enter a day:"))
+weeks={1:"Friday",2:"Saturday",3:"Sunday",4:"Monday",5:"Tuesday",6:"Wednesday",7:"Thrusday"}
+print(weeks[day%7])

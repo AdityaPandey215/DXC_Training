@@ -1,0 +1,86 @@
+lis=[
+{"pid":1,
+  "pname":"6T",
+   "cost":10000,
+   "brand":"Oneplus",
+   "category":"Electronics",
+   "rating":4,
+   "discount":30
+   },
+{"pid":2,
+  "pname":"Pants",
+   "cost":3000,
+   "brand":"Globus",
+   "category":"Clothing",
+   "rating":3,
+   "discount":20
+   },
+{"pid":3,
+  "pname":"EliteBook",
+   "cost":50000,
+   "brand":"Hp",
+   "category":"Electronics",
+   "rating":4,
+   "discount":10
+   },
+{"pid":4,
+  "pname":"Broom",
+   "cost":500,
+   "brand":"Gfk",
+   "category":"Home Appliances",
+   "rating":5,
+   "discount":20
+   },
+{"pid":5,
+  "pname":"Table",
+   "cost":800,
+   "brand":"Kp appliances",
+   "category":"Home Appliances",
+   "rating":3,
+   "discount":20
+   },
+{"pid":6,
+  "pname":"TShirt",
+   "cost":200,
+   "brand":"Jockey",
+   "category":"Clothing",
+   "rating":5,
+   "discount":40
+   }
+]
+def filterfun(arg,target):
+    filteredList=filter(lambda el:el[arg]==target,lis)
+    for i in filteredList:
+        print("{pname} {brand}".format(**i))
+
+filterChoices={1:"category",2:"pname",3:"brand"}
+categories={"category":["Electronics","Home Appliances","Clothing"],"pname":["6T","Pants","EliteBook","Broom","Table","TShirt"],
+"brand":["Oneplus","Globus","Hp","Gfk","Kp appliances","Jockey"]}
+
+
+#filter by category,brand,product name
+print("Filter menu")
+print("-------------")
+print("Press 1 to filter by Category")
+print("Press 2 to filter by Name")
+print("Press 3 to filter by Brand")
+choice=int(input("Enter Choice"))
+print()
+ch=filterChoices[choice]
+
+print("choice=",ch)
+
+li=categories[ch]
+counter=1
+for i in li:
+    st=str(counter)
+    print("Press "+ st + " to Filter by ",i)
+    counter=int(counter)
+    counter+=1
+choic=int(input("Enter Choice"))
+chh=categories[ch][choic-1]
+print("index in list==",chh)
+filterfun(ch,chh)
+
+
+

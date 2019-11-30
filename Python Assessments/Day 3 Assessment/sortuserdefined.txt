@@ -1,0 +1,63 @@
+
+class productList:
+  def __init__(self,pid,pname,cost,brand,category,rating,discount):
+     self.pid=pid,
+     self.pname=pname,
+     self.cost=cost,
+     self.brand=brand,
+     self.category=category,
+     self.rating=rating,
+     self.discount=discount
+
+product1=productList(1,"6T",10000,"Oneplus","Electronics",4,30)
+product2=productList(2,"Pants",3000,"Globus","Clothing",3,20)
+product3=productList(3,"EliteBook",50000,"Hp","Electronics",4,10)
+product4=productList(4,"Broom",500,"Gfk","Home Appliances",5,20)
+product5=productList(5,"Pro",100000,"Iphone","Electronics",5,10)
+
+
+
+lis=[product1,product2,product3,product4,product5]
+#print("proo ",product1.__dict__["cost"])
+#def iteratee(p):
+ # for i in lis:
+  #  return [(i.__dict__[p][0])]
+    # print(i.__dict__[p][0])
+     
+
+#p=input("Enter attr")
+#iteratee(p)
+
+
+
+
+print("Press 1 to sort by cost asc")
+print("Press 2 to sort by cost desc")
+print("Press 3 to sort by rating")
+print("Press 4 to sort by discount asc")
+print("Press 5 to sort by discount desc")
+
+choice=int(input("Enter Choice"))
+print()
+
+choices={1:["cost",False],2:["cost",True],3:["rating",False]
+,4:["discount",False],5:["discount",True]}
+
+def fun(p,v):
+    temp=lis
+    temp.sort(key=lambda el:el.__dict__[p],reverse=v)
+    print("Product Name","Product Cost","Product Rating")
+    for i in temp:
+       print(i.pname[0]+"\t"+str(i.cost[0])+"\t"+str(i.rating[0]))
+    
+    
+
+a=choices[choice]
+fun(*a)
+
+
+
+
+
+
+
